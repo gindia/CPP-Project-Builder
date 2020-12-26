@@ -34,5 +34,7 @@ Enter-VsDevShell 4f535ba1 -DevCmdArguments '-arch=x64 -no_logo'
 - then make a new folder and place build.ps1 in it.
 - finally run the script. if everything went right it will out somthing like this
 
+![](build-output.png)
+
 ## for vim users
-I've made it so F6 will build and F7 will run inside vim. 
+I've made it so `F6` will build and `F7` will run inside vim. 
