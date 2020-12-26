@@ -16,13 +16,14 @@ this is the layout that will be generated.
   |- run.ps1                <------ just to make things easer for vim.
   |- build.ps1              <------ the downloaded script
 ``` 
-## prerequisites
+## Prerequisites
 1. MSVC (Visual Studio).
 1. Powershell and make sure that executing scripts are enabled.
 1. vim or nvim optional.
+1. clangd optional.
 
-## how to use?
-- run powershell with msvc dev-shell, with somthing like that.
+## How to use?
+- run powershell with msvc dev-shell, with somthing like this.
 ```
 Import-Module "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\Tools\Microsoft.VisualStudio.DevShell.dll"
 Enter-VsDevShell 4f535ba1 -DevCmdArguments '-arch=x64 -no_logo'
@@ -36,6 +37,6 @@ Enter-VsDevShell 4f535ba1 -DevCmdArguments '-arch=x64 -no_logo'
 
 ![](build-output.png)
 
-## for vim users
+## For vim users
 I've made it so `F6` will build and `F7` will run inside vim.
 ![](buildNrun.png)
