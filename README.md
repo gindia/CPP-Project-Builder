@@ -1,6 +1,5 @@
 # CPP-Project-Builder for Windows
 A Powershell script to set a layout and build projects using msvc cl compiler.
-side note, I use vim there is a few lines that will generate .exrc file that you can remove if you are not using vim.
 
 ## Project layout
 this is the layout that will be generated.
@@ -22,9 +21,13 @@ this is the layout that will be generated.
 1. vim or nvim optional.
 1. clangd optional.
 
+## Configure
+- there is a few lines that will generate .exrc file that you can remove if you are not using vim.
+- you will need to edit the compile part for your project. I've put an example in the script, please read [compiler](https://docs.microsoft.com/en-us/cpp/build/reference/compiler-options-listed-by-category?view=msvc-160) and [linker](https://docs.microsoft.com/en-us/cpp/build/reference/linker-options?view=msvc-160) docs.
+
 ## How to use?
 - run powershell with msvc dev-shell, with somthing like this.
-```
+```PowerShell
 Import-Module "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\Tools\Microsoft.VisualStudio.DevShell.dll"
 Enter-VsDevShell 4f535ba1 -DevCmdArguments '-arch=x64 -no_logo'
 ```
