@@ -29,7 +29,7 @@ this is the layout that will be generated.
 1. clangd optional.
 
 ## Configure
-- there is a few lines that will generate .exrc file that you can remove if you are not using vim.
+- there are few lines that will generate .exrc file that you can remove if you are not using vim.
 - you will need to edit the compile part for your project. I've put an example in the script, please read [compiler](https://docs.microsoft.com/en-us/cpp/build/reference/compiler-options-listed-by-category?view=msvc-160) and [linker](https://docs.microsoft.com/en-us/cpp/build/reference/linker-options?view=msvc-160) docs.
 
 ## How to use
@@ -43,7 +43,7 @@ Enter-VsDevShell 4f535ba1 -DevCmdArguments '-arch=x64 -no_logo'
 %SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe -noe -c "W:\misc\msvc.ps1"
 ```
 - then make a new folder and place build.ps1 in it.
-- finally run the script. if everything went right it will out somthing like this
+- finally run the script. if everything went right it will output somthing like this
 
 ![](build-output.png)
 
