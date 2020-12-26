@@ -69,14 +69,17 @@ pushd bin
 
 if(Test-Path -path ../libs/glfw3.dll)
 {
+    # copy files to bin dir
     cp "../libs/glfw3.dll" glfw3.dll
 }
 
-$LIBS="opengl32.lib -I../include ../libs/glfw3dll.lib"
-$CPP_FILES="../src/*.cpp"
-$C_FILES="../src/*.c"
-cl -EHsc -Zi -Fe"$($output_file_name)" $CPP_FILES $C_FILES $LIBS
+$LIBS='opengl32.lib ../libs/glfw3dll.lib'
+$CPP_FILES='../src/*.cpp'
+$C_FILES='../src/*.c'
 
+$command="cl -EHsc -Zi -Fe`"$($output_file_name)`" $C_FILES $CPP_FILES $LIBS -I../include"
+
+cmd /c $command
 popd
 
 $sw.Stop()
