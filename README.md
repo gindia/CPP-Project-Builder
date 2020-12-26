@@ -37,4 +37,5 @@ Enter-VsDevShell 4f535ba1 -DevCmdArguments '-arch=x64 -no_logo'
 ![](build-output.png)
 
 ## for vim users
-I've made it so `F6` will build and `F7` will run inside vim. 
+I've made it so `F6` will build and `F7` will run inside vim.
+![](buildNrun.png)
