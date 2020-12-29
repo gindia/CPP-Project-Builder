@@ -68,10 +68,10 @@ Write-Host "-----------------------------------"
 
 pushd build
 
-if(Test-Path -path ../bin/glfw3.dll)
+if(Test-Path -path ../bin/*.dll)
 {
-    # copy files from bin dir
-    cp "../bin/glfw3.dll" glfw3.dll
+    # copy .dll files from bin to build
+    cp "../bin/*.dll" .
 }
 
 # do not forget spaces
