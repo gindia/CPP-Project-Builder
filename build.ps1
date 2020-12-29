@@ -21,6 +21,7 @@ if(!(Test-Path -path ./src))
     mkdir src
     mkdir bin
     mkdir libs
+    mkdir build
     mkdir assets
     mkdir include
 
@@ -64,16 +65,19 @@ Write-Host "-----------------------------------"
 #   linker options:
 #   https://docs.microsoft.com/en-us/cpp/build/reference/linker-options?view=msvc-160
 ##
-pushd bin
 
+pushd build
 
-if(Test-Path -path ../libs/glfw3.dll)
+if(Test-Path -path ../bin/glfw3.dll)
 {
-    # copy files to bin dir
-    cp "../libs/glfw3.dll" glfw3.dll
+    # copy files from bin dir
+    cp "../bin/glfw3.dll" glfw3.dll
 }
 
-$LIBS='opengl32.lib ../libs/glfw3dll.lib'
+# do not forget spaces
+$LIBS='opengl32.lib '
+$LIBS+='../libs/glfw3dll.lib '
+
 $CPP_FILES='../src/*.cpp'
 $C_FILES='../src/*.c'
 
