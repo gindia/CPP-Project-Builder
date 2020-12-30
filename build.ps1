@@ -35,7 +35,7 @@ if(!(Test-Path -path ./src))
     }
 ]" | Out-File -encoding ASCII compile_commands.json
     New-Item run.ps1
-"pushd bin
+"pushd build
 ./$($output_file_name)
 popd" | Out-File -encoding ASCII run.ps1
 
