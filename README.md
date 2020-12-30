@@ -13,6 +13,7 @@ this is the layout that will be generated.
 ```
 + ProjectName
   |- src/
+  |- build/
   |- bin/
   |- libs/
   |- assets/
