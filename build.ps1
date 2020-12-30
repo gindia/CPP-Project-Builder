@@ -45,10 +45,11 @@ popd" | Out-File -encoding ASCII run.ps1
 #   set exrc
 #   set secure
 #  
+#   also add build and run to path.
 ##
     New-Item .exrc
-"map <F6> :split<CR>:term ./build<CR>
-map <F7> :split<CR>:term ./run<CR>" | Out-File -encoding ASCII .exrc
+"map <F6> :!build<CR>
+map <F7> :!run<CR>" | Out-File -encoding ASCII .exrc
 }
 
 
