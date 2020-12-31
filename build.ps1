@@ -49,7 +49,8 @@ popd" | Out-File -encoding ASCII run.ps1
 ##
     New-Item .exrc
 "map <F6> :!build<CR>
-map <F7> :!run<CR>" | Out-File -encoding ASCII .exrc
+map <F7> :!run<CR>
+map <F8> :!build<CR> :!run<CR>" | Out-File -encoding ASCII .exrc
 }
 
 
