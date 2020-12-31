@@ -54,5 +54,7 @@ Enter-VsDevShell 4f535ba1 -DevCmdArguments '-arch=x64 -no_logo'
 set exrc
 set secure
 ```
-I've made it so `F6` will build and `F7` will run inside vim.
+- `F6` => build.
+- `F7` => run.
+- `F8` => build & run.
 ![](buildNrun.png)
