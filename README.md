@@ -1,4 +1,4 @@
-# CPP-Project-Builder for Windows
+# CPP-Project-Builder (with powershell)
 A Powershell script to set a layout and build projects using msvc cl compiler.
 
 ## Table of Content
