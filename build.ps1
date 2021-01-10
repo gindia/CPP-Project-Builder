@@ -6,7 +6,9 @@
 #   Date:   25-12-2020
 #
 #   Sets up folders/directories and builds with MSVC compiler "CL" and clangd lsp
-#      
+#   
+#   Note: make sure that you are working under Microsoft Devoloper Powershell.
+#
 ####
 
 $sw = [Diagnostics.Stopwatch]::StartNew()
@@ -42,15 +44,24 @@ popd" | Out-File -encoding ASCII run.ps1
 ##
 #   Vim settings, don't forget to add the following commands to your .vimrc file 
 #   
-#   set exrc
-#   set secure
+#       set exrc
+#       set secure
 #  
-#   also add build and run to path.
+#   also add build and run to $PATH.
 ##
     New-Item .exrc
 "map <F6> :!build<CR>
 map <F7> :!run<CR>
-map <F8> :!build<CR> :!run<CR>" | Out-File -encoding ASCII .exrc
+function! SwitchSourceHeader()
+  "update!
+  if (expand ("%:e") == "cpp")
+    find %:t:r.h
+  else
+    find %:t:r.cpp
+  endif
+endfunction
+
+map <F12> :call SwitchSourceHeader()<CR>" | Out-File -encoding ASCII .exrc
 }
 
 
@@ -76,14 +87,21 @@ if(Test-Path -path ../bin/*.dll)
     cp "../bin/*.dll" .
 }
 
-# do not forget spaces
+# Compiler Flags
+$FLAGS="-Fe`"$($output_file_name)`" " 
+$FLAGS+="-FC -nologo -fp:fast -WX -W4 -wd4100 -EHsc -Z7 -Oi -Od -MP"
+
+# Linker Flags
+$LFLAGS="-INCREMENTAL:no -DEBUG:FASTLINK -opt:ref"
+
 $LIBS='opengl32.lib '
-$LIBS+='../libs/glfw3dll.lib '
+# $LIBS+='../libs/glfw3dll.lib '
 
 $CPP_FILES='../src/*.cpp'
 $C_FILES='../src/*.c'
 
-$command="cl -EHsc -Zi -Fe`"$($output_file_name)`" $C_FILES $CPP_FILES $LIBS -I../include"
+$COMPILE_UNITS ="$CPP_FILES $C_FILES"
+$command="cl $FLAGS $COMPILE_UNITS $LIBS -I../include -link $LFLAGS"
 
 cmd /c $command
 popd
