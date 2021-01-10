@@ -52,9 +52,9 @@ popd" | Out-File -encoding ASCII run.ps1
     New-Item .exrc
 "map <F6> :!build<CR>
 map <F7> :!run<CR>
+map <F8> :!build;run<CR>
 function! SwitchSourceHeader()
-  "update!
-  if (expand ("%:e") == "cpp")
+  if (expand (`"%:e`") == `"cpp`")
     find %:t:r.h
   else
     find %:t:r.cpp
